@@ -1,0 +1,132 @@
+﻿@model IEnumerable<AdonayFinal.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    body {
+        font-family: 'Times New Roman', sans-serif;
+        font-size:large;
+        background-color: #CCCCCC;
+        margin: 0;
+        padding: 0;
+        background-image: url(https://i.pinimg.com/originals/24/1d/f1/241df18459df5b66daa551400a4a77fe.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    p {
+        margin-top: 150px;
+    }
+
+    table {
+        width: 20%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 5px solid #000000;
+     
+    }
+
+    th, td {
+        padding: 15px;
+        border: 5px solid #000000;
+        text-align: left;
+    }
+
+    th {
+        background-color: #666666;
+        color: #fff;
+    }
+
+    tr {
+        transition: background-color 0.3s;
+    }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+    .actions {
+        white-space: nowrap;
+    }
+
+        .actions a {
+            color: #4285f4;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+
+            .actions a:hover {
+                color: #1c67b7;
+            }
+
+    .create-button {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 20px;
+        text-decoration: none;
+        background-color: #000000;
+        color: #fff;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+        .create-button:hover {
+            background-color: #1c67b7;
+
+        }
+</style>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.user_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.user_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.user_id })
+            </td>
+        </tr>
+    }
+
+</table>
